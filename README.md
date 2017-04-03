@@ -1,5 +1,16 @@
 # Set (the Game) with React
 
+## Run App
+
+After cloning down the app navigate to the main directory and run the following commands
+
+```
+  $ npm install
+  $ webpack
+  $ webpack-dev-server
+```
+Find the project running @ http://localhost://8080
+
 ## Challenge Rating
 
 This goal will likely be within your ZPD if you...
