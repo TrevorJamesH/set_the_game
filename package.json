@@ -1,0 +1,34 @@
+{
+  "name": "set_the_game",
+  "version": "1.0.0",
+  "description": "The Set pattern matching card game built with React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeadossi/set_the_game.git"
+  },
+  "author": "@trevorJamesH @mikeAdossi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikeadossi/set_the_game/issues"
+  },
+  "homepage": "https://github.com/mikeadossi/set_the_game#readme",
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "react-hot-loader": "^1.3.1",
+    "react-scripts": "0.8.5"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-router": "^4.0.0"
+  }
+}
