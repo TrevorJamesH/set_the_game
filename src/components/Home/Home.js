@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from 'components/presentation/Cards/Card';
+import Card from 'components/containers/Cards/Card';
 
 export default class Home extends React.Component{
 
