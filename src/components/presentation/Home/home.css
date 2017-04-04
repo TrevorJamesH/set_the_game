@@ -27,3 +27,19 @@ table, th, td{
   height:180px;
   width:300px
 }
+
+#resetBtn{
+  display:block;
+  margin:auto;
+  margin-bottom:10px;
+}
+
+.score{
+  display:inline-block;
+  margin-bottom:5px;
+  margin-right:10px;
+}
+
+.score > input {
+  width:40px;
+}

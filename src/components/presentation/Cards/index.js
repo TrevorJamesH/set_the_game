@@ -1,4 +1,14 @@
-
+function shuffle(arr) {
+  var x;
+  var randomNum;
+  for (var i = arr.length; i > 0; i--) {
+    randomNum = Math.floor(Math.random() * i);
+    x = arr[i - 1];
+    arr[i - 1] = arr[randomNum];
+    arr[randomNum] = x;
+    // we pass an undefined value 'x' into our array which cleverly removes the previous number from our array.
+  }
+}
 
 var cards = [
   {
@@ -9,7 +19,7 @@ var cards = [
     shadings:'solid'
   },
   {
-    id:2;,
+    id:2,
     color:'red',
     shapes:'squiggle',
     number:2,
@@ -84,7 +94,7 @@ var cards = [
     shapes:'diamond',
     number:3,
     shadings:'solid'
-  }
+  },
   {
     id:13,
     color:'green',
@@ -224,7 +234,7 @@ var cards = [
     shapes:'squiggle',
     number:2,
     shadings:'striped'
-  }
+  },
   {
     id:33,
     color:'green',
@@ -364,7 +374,7 @@ var cards = [
     shapes:'oval',
     number:1,
     shadings:'striped'
-  }
+  },
   {
     id:53,
     color:'purple',
@@ -504,7 +514,7 @@ var cards = [
     shapes:'diamond',
     number:3,
     shadings:'open'
-  }
+  },
   {
     id:73,
     color:'red',
