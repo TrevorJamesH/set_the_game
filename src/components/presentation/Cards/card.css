@@ -1,8 +1,46 @@
-#Card{
-  background-color:skyblue;
-  height:95%;
-  width:95%;
+.card{
+  margin-bottom:5px;
+  display:block;
+}
+
+.diamond{
+  height:25px;
+  text-align:center;
+  padding-bottom:5px;
+}
+
+.rightDiamond{
+	width: 2px;
+	height: 2px;
+	border-top: 12.5px solid transparent;
+	border-left: 25px solid red;
+	border-bottom: 12.5px solid transparent;
+  display:inline-block;
+}
+
+.leftDiamond{
+	width: 2px;
+	height: 2px;
+	border-top: 12.5px solid transparent;
+	border-right: 25px solid red;
+	border-bottom: 12.5px solid transparent;
+  display:inline-block;
+}
+
+.oval{
+  width:80px;
+  height:20px;
+  background-color:red;
+  border-radius:20px 20px 20px 20px;
   margin:auto;
-  vertical-align:middle;
-  line-height:140px;
+}
+
+.squiggly{
+	width: 60px;
+	height: 20px;
+  margin:auto;
+	-webkit-transform: skew(20deg);
+	   -moz-transform: skew(20deg);
+	     -o-transform: skew(20deg);
+	background: red;
 }
