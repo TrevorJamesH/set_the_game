@@ -35,6 +35,8 @@ export default class Card extends React.Component{
   // <div className="squiggly"></div>
   // </div>
 
+  
+
   render(){
     return(
       <div id="CardContainer">
