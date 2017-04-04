@@ -4,10 +4,23 @@
 
 class Game {
   constructor(){
-    deck: new Deck
-    board: new Board
+    this.deck = new Deck
+    this.board = new Board
+    this.selected = []
+    this.score = 0
   }
 
+  deal(){
+
+  }
+
+  addRow(){
+
+  }
+
+  checkMatch(){
+
+  }
 }
 
 class Deck {
@@ -34,6 +47,17 @@ class Deck {
       }
     }
   }
+
+  shuffle(){
+    var x;
+    var randomNum;
+    for (var i = this.cards.length; i > 0; i--) {
+      randomNum = Math.floor(Math.random() * i);
+      x = this.cards[i - 1];
+      this.cards[i - 1] = this.cards[randomNum];
+      this.cards[randomNum] = x;
+    }
+  }
 }
 
 class Card{
@@ -54,4 +78,5 @@ class Card{
 
 
 let deck = new Deck
+deck.shuffle()
 console.log(deck)
