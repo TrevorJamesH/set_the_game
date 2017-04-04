@@ -37,7 +37,7 @@ export default class Card extends React.Component{
 
   render(){
     return(
-      <div>
+      <div id="CardContainer">
         <div className="card diamond">
           <div className="leftDiamond"></div>
           <div className="rightDiamond"></div>
