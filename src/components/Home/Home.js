@@ -1,3 +1,4 @@
+import './home.css'
 import React from 'react';
 import Board from 'components/Board/Board';
 

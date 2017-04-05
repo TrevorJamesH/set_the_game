@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from 'src/components/App/App';
+import App from 'components/App/App';
 
-class SetGame {
+export default class SetGame {
   constructor(){
     this.deck = []
     this.board = []
@@ -103,9 +103,6 @@ class Card{
     this.shading = shading
   }
 }
-
-export default class SetGame
-
 
 // let game = new SetGame
 // game.populateDeck()

@@ -1,8 +1,9 @@
+import './index.css'
 import React from 'react';
 import { render } from 'react-dom';
-import App from 'components/App/App';
+import Board from 'components/Board/Board';
 
 render(
-  <App />,
+  <Board />,
   document.getElementById('root')
 );
