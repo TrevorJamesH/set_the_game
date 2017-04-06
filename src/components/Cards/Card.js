@@ -8,7 +8,9 @@ export default class Card extends React.Component{
   // }
 
   render(){
-    const { card } = this.props
+    const { card, clickthing } = this.props
+    //const card = this.props.card
+    let highlighted = card.highlight ? "Card card-highlighted" : "Card"
 
     let symbols = Array(this.props.card.number).fill().map((_, index) =>
       <Symbol
@@ -20,7 +22,7 @@ export default class Card extends React.Component{
     )
 
     return(
-      <div className="Card">
+      <div className={highlighted} onClick={clickthing}>
         {symbols}
       </div>
     );

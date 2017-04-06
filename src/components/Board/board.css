@@ -20,3 +20,12 @@
   justify-content: space-around;
   flex-shrink: 0;
 }
+
+.headerContainer {
+  margin:auto;
+  margin-bottom:5px;
+}
+
+.board-btns:hover{
+  cursor:pointer;
+}

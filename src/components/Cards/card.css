@@ -7,6 +7,7 @@
   padding-top:32px;
   padding-bottom:44px;
   border:1px solid lightgrey;
+  border-radius:5px 5px 5px 5px;
 }
 
 .CardContainer{
@@ -50,30 +51,35 @@
   border:5px;
 }
 
-.red{
+.card-red{
   background-color: red;
   border:3px solid red;
 }
 
-.green{
+.card-green{
   background-color: green;
   border:3px solid green;
 }
 
-.purple{
+.card-purple{
   background-color: purple;
   border:3px solid purple;
 }
 
-.solid{
+.card-solid{
   opacity: 1
 }
 
-.striped{
+.card-striped{
   opacity: 0.3
 }
 
-.open{
+.card-open{
   background-color: transparent;
   /*opacity: 0*/
+}
+
+.card-highlighted{
+  border:2px solid yellow;
+  transform: rotate(-8deg)
 }
