@@ -50,16 +50,16 @@ This goal will especially exercise your [domain modeling](https://en.wikipedia.o
 - [X] App has one page that displays the full game
 - [X] Deck has 81 shuffled cards
 - [X] When launched, game deals 12 cards from deck in a 4x3 grid
-- [ ] Player has a score (starts at 0)
+- [X] Player has a score (starts at 0)
 - [X] Player can press a button to reset the game
   - [X] When pressed, deck is regenerated and reshuffled and a new grid is dealt
 - [X] Player can press a button to deal 3 more cards into the grid (now 5x3)
 - [X] Player can click to select 3 cards and UI will indicate that the cards have been "selected"
-  - [ ] When the player selects 3 cards that _are_ a set, the cards are replaced with new ones and the player's score increments by 1
-  - [ ] When the player selects 3 cards that _are not_ a set, the player is shown a temporary error message ("Not a set") and the cards are automatically de-selected
+  - [X] When the player selects 3 cards that _are_ a set, the cards are replaced with new ones and the player's score increments by 1
+  - [X] When the player selects 3 cards that _are not_ a set, the player is shown a temporary error message ("Not a set") and the cards are automatically de-selected
 - [ ] When there are no more cards in the deck or remaining cards have no sets in them, game is over
   - [ ] "Game Over" message is displayed
-  - [ ] "New Game" button is displayed, which starts a new game if clicked
+  - [X] "New Game" button is displayed, which starts a new game if clicked
 - [X] Cards and their graphics are rendered with [CSS shape tricks](https://css-tricks.com/examples/ShapesOfCSS/) (not images)
 - [X] The artifact produced is properly licensed, preferably with the [MIT license][mit-license].
 
