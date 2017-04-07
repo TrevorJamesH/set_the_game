@@ -9,6 +9,7 @@ export default class SetGame {
     this.selected = []
     this.score = 0
     this.message = 'Pick Three'
+    this.setsOnBoard
   }
 
   populateDeck(){
@@ -43,11 +44,13 @@ export default class SetGame {
 
   deal(){
     this.board = this.deck.splice(0,12)
+    this.checkPossible()
   }
 
   addRow(){
     if(this.board.length == 12){
-      this.board = this.board.concat(this.deck.splice(0,4))
+      this.board = this.board.concat(this.deck.splice(0,3))
+      this.checkPossible()
     }
   }
 
@@ -65,13 +68,14 @@ export default class SetGame {
     }
 
     if( this.selected.length == 3 ){
-      if( this.checkMatch() ){
+      if( this.checkMatch( this.selected ) ){
         this.selected.forEach( index => {
           this.board.splice( index, 1, this.deck.shift() )
-          this.score++
           this.showMessage('Set!')
         })
+        this.score++
         this.selected = []
+        if(!this.deck.length){this.message = 'Game Over Deck is Empty'}
       }
       else{
         this.selected.forEach( index => {
@@ -81,7 +85,6 @@ export default class SetGame {
         this.selected = []
       }
     }
-    console.log(this.message)
   }
 
   showMessage( message ){
@@ -89,15 +92,10 @@ export default class SetGame {
     setTimeout( (() => this.message = 'Pick Three'), 1000)
   }
 
-  checkMatch(){
-    let one = this.board[this.selected[0]]
-    let two = this.board[this.selected[1]]
-    let three = this.board[this.selected[2]]
-
-    if(this.selected.length != 3){
-      return 'must have 3 selected'
-    }
-    let toCheck = ['color','shape','number','shading']
+  checkMatch( triplet ){
+    let one = this.board[triplet[0]]
+    let two = this.board[triplet[1]]
+    let three = this.board[triplet[2]]
 
     const checkDifferent = ( trait ) => {
       if(one[trait] === two[trait] || one[trait] === three[trait] || two[trait] === three[trait]){
@@ -114,6 +112,7 @@ export default class SetGame {
     }
 
     let set = true
+    let toCheck = ['color','shape','number','shading']
     toCheck.forEach( trait => {
       if( !( checkSame( trait ) || checkDifferent( trait ) ) ){
         set = false
@@ -121,6 +120,28 @@ export default class SetGame {
     })
     return set
   }
+
+  checkPossible(){
+    let combinations = []
+    for( let i = 0; i < this.board.length; i++){
+      for( let j = 0; j < i; j++){
+        for( let k = 0; k < j; k++){
+          combinations.push([i,j,k])
+        }
+      }
+    }
+    let sets = 0
+    combinations.forEach( combination => {
+      if(this.checkMatch( combination )){
+        console.log(combination)
+        sets++
+      }
+    })
+    this.setsOnBoard = sets
+    if(sets<=0)(this.message = 'Game Over No Possible Sets')
+  }
+
+
 
   replace(){
     this.selected.map( selectedCard => {
@@ -143,13 +164,3 @@ class Card{
     this.highlight = false
   }
 }
-
-// let game = new SetGame
-// game.populateDeck()
-// game.deal()
-// console.log(game.board)
-// game.select(game.board[2])
-// game.select(game.board[4])
-// game.select(game.board[6])
-// game.replace()
-// console.log(game.board)

@@ -47,18 +47,21 @@ export default class Board extends React.Component{
 
     while(cards.length){
       cardRows.push(
-        <CardRow key={cardRows.length} cards={cards.splice(0,4)} clickHandler = {this.clickHandler} />
+        <CardRow key={cardRows.length} cards={cards.splice(0,3)} clickHandler = {this.clickHandler} />
       )
     }
 
     return(
-      <div className="Board">
-        <div className='headerContainer'>
+      <div className="Board row" >
+        <div className='Board-headerContainer'>
           <h1 className="Board-title">Set Game</h1>
-          <ScoreBoard score={this.state.game.score}/>
-          <Message message={this.state.game.message} />
-          <button className="board-btns" onClick={this.reset}>reset</button>
-          <button className="board-btns" onClick={this.addRow}>add row</button>
+          <div className="Board-info">
+            <ScoreBoard score={this.state.game.score}/>
+            <SetCount sets={this.state.game.setsOnBoard}/>
+            <Message message={this.state.game.message} />
+          </div>
+          <button className="Board-btns" onClick={this.reset}>reset</button>
+          <button className="Board-btns" onClick={this.addRow}>add row</button>
         </div>
         <div className="Board-card-rows">{cardRows}</div>
       </div>
@@ -78,6 +81,12 @@ const CardRow = ({cards, clickHandler}) => {
 const ScoreBoard = ({score}) => {
   return <div className='scoreBoard'>
     <h1>Score:  {score}</h1>
+  </div>
+}
+
+const SetCount = ({sets}) => {
+  return <div className='scoreBoard'>
+    <h5>Possible Sets:  {sets}</h5>
   </div>
 }
 
