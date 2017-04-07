@@ -1,12 +1,17 @@
 .Card{
   background-color: whitesmoke;
-  height: 150px;
+  height: 120px;
   width: 100px;
   flex-grow: 0;
   flex-shrink: 0;
-  padding-top:32px;
+  padding-top:22px;
   padding-bottom:44px;
   border:1px solid lightgrey;
+  border-radius:5px 5px 5px 5px;
+}
+
+.Card:hover{
+  cursor:pointer;
 }
 
 .CardContainer{
@@ -23,15 +28,15 @@
 }
 
 .diamond{
-  width: 30px;
-	height: 30px;
+  width: 20px;
+	height: 20px;
 	background: red;
   margin:auto;
   border:1px solid black;
 }
 
 .oval{
-  width:80px;
+  width:65px;
   height:20px;
   background-color:red;
   border-radius:20px 20px 20px 20px;
@@ -40,7 +45,7 @@
 }
 
 .squiggle{
-	width: 60px;
+	width: 40px;
 	height: 20px;
   margin:auto;
 	-webkit-transform: skew(20deg);
@@ -50,30 +55,35 @@
   border:5px;
 }
 
-.red{
+.card-red{
   background-color: red;
   border:3px solid red;
 }
 
-.green{
+.card-green{
   background-color: green;
   border:3px solid green;
 }
 
-.purple{
+.card-purple{
   background-color: purple;
   border:3px solid purple;
 }
 
-.solid{
+.card-solid{
   opacity: 1
 }
 
-.striped{
+.card-striped{
   opacity: 0.3
 }
 
-.open{
+.card-open{
   background-color: transparent;
   /*opacity: 0*/
+}
+
+.card-highlighted{
+  border:2px solid yellow;
+  transform: rotate(-8deg)
 }

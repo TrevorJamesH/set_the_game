@@ -8,12 +8,14 @@ export default class SetGame {
     this.board = []
     this.selected = []
     this.score = 0
+    this.message = 'Pick Three'
+    this.setsOnBoard
   }
 
   populateDeck(){
-    let colors = ['red','green','purple']
+    let colors = ['card-red','card-green','card-purple']
     let shapes = ['squiggle','diamond','oval']
-    let shading = ['solid','striped','open']
+    let shading = ['card-solid','card-striped','card-open']
     let deck = []
 
     let index = 1
@@ -42,46 +44,105 @@ export default class SetGame {
 
   deal(){
     this.board = this.deck.splice(0,12)
+    this.checkPossible()
   }
 
   addRow(){
-    this.board = this.board.concat(this.deck.splice(0,4))
-  }
-
-  select( card ){
-    this.selected.push( card )
-  }
-
-  checkMatch(){
-    let one = this.selected[0]
-    let two = this.selected[1]
-    let three = this.selected[2]
-
-    if(this.selected.length != 3){
-      return 'must have 3 selected'
+    if(this.board.length == 12){
+      this.board = this.board.concat(this.deck.splice(0,3))
+      this.checkPossible()
     }
+  }
+
+  select( id ){
+    let selectedCardIndex = this.board.findIndex( card => card.id == id )
+    let selectedCard = this.board[selectedCardIndex]
+
+    if( selectedCard.highlight ){
+      selectedCard.highlight = false
+      this.selected = this.selected.filter( index => selectedCardIndex != index )
+    }
+    else{
+      selectedCard.highlight = true
+      this.selected.push( selectedCardIndex )
+    }
+
+    if( this.selected.length == 3 ){
+      if( this.checkMatch( this.selected ) ){
+        this.selected.forEach( index => {
+          this.board.splice( index, 1, this.deck.shift() )
+          this.showMessage('Set!')
+        })
+        this.score++
+        this.selected = []
+        this.checkPossible()
+        if(!this.deck.length){this.message = 'Game Over Deck is Empty'}
+      }
+      else{
+        this.selected.forEach( index => {
+          this.board[index].highlight = false
+          this.showMessage('Not a set')
+        })
+        this.selected = []
+      }
+    }
+  }
+
+  showMessage( message ){
+    this.message = message
+    setTimeout( (() => this.message = 'Pick Three'), 1000)
+  }
+
+  checkMatch( triplet ){
+    let one = this.board[triplet[0]]
+    let two = this.board[triplet[1]]
+    let three = this.board[triplet[2]]
+
+    const checkDifferent = ( trait ) => {
+      if(one[trait] === two[trait] || one[trait] === three[trait] || two[trait] === three[trait]){
+        return false
+      }
+      return true
+    }
+
+    const checkSame = ( trait ) => {
+      if(one[trait] !== two[trait] || one[trait] !== three[trait] || two[trait] !== three[trait]){
+        return false
+      }
+      return true
+    }
+
+    let set = true
     let toCheck = ['color','shape','number','shading']
-
-    let checkDifferent = () => {
-      for(let i = 0; i < toCheck.length; i++){
-        if(one[toCheck[i]] === two[toCheck[i]] || one[toCheck[i]] === three[toCheck[i]] || two[toCheck[i]] === three[toCheck[i]]){
-          return false
-        }
+    toCheck.forEach( trait => {
+      if( !( checkSame( trait ) || checkDifferent( trait ) ) ){
+        set = false
       }
-      return true
-    }
-
-    let checkSame = () => {
-      for(let i = 0; i < toCheck.length; i++){
-        if(one[toCheck[i]] !== two[toCheck[i]] || one[toCheck[i]] !== three[toCheck[i]] || two[toCheck[i]] !== three[toCheck[i]]){
-          return false
-        }
-      }
-      return true
-    }
-
-    return checkSame() || checkDifferent()
+    })
+    return set
   }
+
+  checkPossible(){
+    let combinations = []
+    for( let i = 0; i < this.board.length; i++){
+      for( let j = 0; j < i; j++){
+        for( let k = 0; k < j; k++){
+          combinations.push([i,j,k])
+        }
+      }
+    }
+    let sets = 0
+    combinations.forEach( combination => {
+      if(this.checkMatch( combination )){
+        console.log(combination)
+        sets++
+      }
+    })
+    this.setsOnBoard = sets
+    if(sets<=0)(this.message = 'Game Over No Possible Sets')
+  }
+
+
 
   replace(){
     this.selected.map( selectedCard => {
@@ -101,15 +162,6 @@ class Card{
     this.color = color
     this.shape = shape
     this.shading = shading
+    this.highlight = false
   }
 }
-
-// let game = new SetGame
-// game.populateDeck()
-// game.deal()
-// console.log(game.board)
-// game.select(game.board[2])
-// game.select(game.board[4])
-// game.select(game.board[6])
-// game.replace()
-// console.log(game.board)
