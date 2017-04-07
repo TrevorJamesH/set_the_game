@@ -4,7 +4,8 @@
   "description": "The Set pattern matching card game built with React",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build":"./node_modules/bin/webpack",
+    "start":"./node_modules/.bin/webpack-dev-server"
   },
   "repository": {
     "type": "git",
