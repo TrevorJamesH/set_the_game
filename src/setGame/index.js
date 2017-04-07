@@ -75,6 +75,7 @@ export default class SetGame {
         })
         this.score++
         this.selected = []
+        this.checkPossible()
         if(!this.deck.length){this.message = 'Game Over Deck is Empty'}
       }
       else{

@@ -52,9 +52,10 @@ export default class Board extends React.Component{
     }
 
     return(
-      <div className="Board row" >
+      <div className="Board" >
         <div className='Board-headerContainer'>
-          <h1 className="Board-title">Set Game</h1>
+          <h1 className="Board-title">The</h1>
+          <h1 className="Board-title Board-title-base">Set Game</h1>
           <div className="Board-info">
             <ScoreBoard score={this.state.game.score}/>
             <SetCount sets={this.state.game.setsOnBoard}/>
