@@ -57,8 +57,8 @@ This goal will especially exercise your [domain modeling](https://en.wikipedia.o
 - [X] Player can click to select 3 cards and UI will indicate that the cards have been "selected"
   - [X] When the player selects 3 cards that _are_ a set, the cards are replaced with new ones and the player's score increments by 1
   - [X] When the player selects 3 cards that _are not_ a set, the player is shown a temporary error message ("Not a set") and the cards are automatically de-selected
-- [ ] When there are no more cards in the deck or remaining cards have no sets in them, game is over
-  - [ ] "Game Over" message is displayed
+- [X] When there are no more cards in the deck or remaining cards have no sets in them, game is over
+  - [X] "Game Over" message is displayed
   - [X] "New Game" button is displayed, which starts a new game if clicked
 - [X] Cards and their graphics are rendered with [CSS shape tricks](https://css-tricks.com/examples/ShapesOfCSS/) (not images)
 - [X] The artifact produced is properly licensed, preferably with the [MIT license][mit-license].
