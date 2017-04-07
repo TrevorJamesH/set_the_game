@@ -6,8 +6,8 @@ After cloning down the app navigate to the main directory and run the following 
 
 ```
   $ npm install
-  $ webpack
-  $ webpack-dev-server
+  $ npm build
+  $ npm start
 ```
 Find the project running @ http://localhost://8080
 
